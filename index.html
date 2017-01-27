@@ -14,11 +14,25 @@
 				margin: 0px;
 				overflow: hidden;
 			}
+
+			#info {
+                position: absolute;
+                top: 10px;
+                width: 100%;
+                text-align: center;
+                z-index: 100;
+                display:block;
+                color:white;
+                font-family:helvetica;
+                cursor:pointer;
+                z-index:999;
+            }
 		</style>
 </head>
 <body>
 
 <div id="container"></div>
+<div id="info" onclick="fullscreen()">FullScreen</div>
 <script src="three.js"></script>
 
 <script src="FirstPersonControls.js"></script>
@@ -91,6 +105,18 @@
 				controls.update( delta );
 				renderer.render( scene, camera );
 			}
+
+			function fullscreen () {
+        if (container.requestFullscreen) {
+            container.requestFullscreen();
+        } else if (container.msRequestFullscreen) {
+            container.msRequestFullscreen();
+        } else if (container.mozRequestFullScreen) {
+            container.mozRequestFullScreen();
+        } else if (container.webkitRequestFullscreen) {
+            container.webkitRequestFullscreen();
+        }
+    }
 		</script>
 
 </body>
