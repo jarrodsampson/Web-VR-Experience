@@ -122,7 +122,8 @@
 
 				mesh.geometry.verticesNeedUpdate = true;
 				controls.update( delta );
-				renderer.render( scene, camera );
+				effect.render( scene, camera );
+				//renderer.render( scene, camera );
 			}
 
 			function fullscreen () {
