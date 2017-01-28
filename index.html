@@ -38,8 +38,11 @@
 <script src="FirstPersonControls.js"></script>
 <script src="DeviceOrientationControls.js"></script>
 <script src="detector.js"></script>
+<script src="StereoEffect.js"></script>
 
 <script>
+
+    var effect;
 
             var listener = new THREE.AudioListener();
     var sound = new THREE.Audio( listener );
@@ -82,6 +85,11 @@
 				renderer.setClearColor( 0x000000 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				effect = new THREE.StereoEffect( renderer );
+	            effect.setSize( window.innerWidth, window.innerHeight );
+
+
 				container.innerHTML = "";
 				container.appendChild( renderer.domElement );
 				//
